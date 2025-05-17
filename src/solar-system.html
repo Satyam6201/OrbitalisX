@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spacekit Solar System Simulation</title>
+  <style>
+    /* Fullscreen container for Spacekit */
+    #main-container {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    /* Controls container style */
+    #controls, #speed-controls {
+      position: fixed;
+      left: 10px;
+      z-index: 1000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      user-select: none;
+    }
+    #controls {
+      top: 10px;
+    }
+    #speed-controls {
+      top: 60px;
+    }
+
+    button {
+      background-color: #222;
+      color: #eee;
+      border: 1px solid #555;
+      padding: 6px 10px;
+      margin: 4px 2px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #555;
+    }
+
+    /* Simulation time display */
+    #simulation-time {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      font-family: monospace;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      z-index: 1000;
+      user-select: none;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Container for the 3D simulation -->
+  <div id="main-container"></div>
+
+  <!-- Zoom and focus controls -->
+  <div id="controls">
+    <button onclick="zoomIn()">Zoom In</button>
+    <button onclick="zoomOut()">Zoom Out</button>
+    <button onclick="focusPlanet('earth')">Focus Earth</button>
+    <button onclick="focusPlanet('mars')">Focus Mars</button>
+  </div>
+
+  <!-- Simulation speed controls -->
+  <div id="speed-controls">
+    <button onclick="setSpeed(0)">Pause</button>
+    <button onclick="setSpeed(1)">Normal</button>
+    <button onclick="setSpeed(10)">Fast x10</button>
+    <button onclick="setSpeed(100)">Fast x100</button>
+  </div>
+
+  <!-- Simulation time display -->
+  <div id="simulation-time">Simulation Date: Loading...</div>
+
+  <!-- Spacekit Library -->
+  <script src="https://typpo.github.io/spacekit/spacekit.min.js"></script>
+
+  <!-- External JavaScript file -->
+  <script src="ss.js"></script>
+
+</body>
+</html>
